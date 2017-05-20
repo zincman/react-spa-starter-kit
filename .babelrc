@@ -1,0 +1,5 @@
+{
+  "presets": [
+    ["env", {"useBuiltIns": true}]    // The default behavior without options runs all transforms (behaves the same as babel-preset-latest)
+  ]
+}
