@@ -1,0 +1,11 @@
+.container {
+	padding-top: 10px;
+}
+
+button.normal {
+	background-color: #ccc;
+}
+
+button.active {
+	background-color: red;
+}

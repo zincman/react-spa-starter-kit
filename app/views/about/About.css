@@ -1,0 +1,5 @@
+.red-wrap {
+	& h1 {
+		color: red;
+	}
+}

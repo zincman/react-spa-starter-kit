@@ -1,0 +1,35 @@
+a {
+	text-decoration: none;
+}
+.___index__container___266la {
+	color: darkgrey;
+}
+
+.___index__navigation___2qNSO {
+	background-color: #ddd;
+}
+
+.views-home-___Home__container___14s2h {
+	padding: 20px;
+	color: pink;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(/604196e5c9af1a01b5403838ab1e8e58.png);
+	overflow: hidden;
+}
+.views-inbox-___Inbox__container___2kPwE {
+	padding: 20px;
+}
+.views-inbox-___Message__container___3unth {
+	padding-top: 10px;
+}
+
+button.views-inbox-___Message__normal___1dOEx {
+	background-color: #ccc;
+}
+
+button.views-inbox-___Message__active___350yb {
+	background-color: red;
+}
+
+/*# sourceMappingURL=bundle.css.map*/

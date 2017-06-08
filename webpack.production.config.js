@@ -2,7 +2,16 @@
 const path = require('path')
 const webpack = require('webpack')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
+const WebpackMd5Hash = require('webpack-md5-hash')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
+
+const cssCommonLoaders = [
+	'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+	'postcss-loader',
+]
 
 module.exports = {
 	entry: {
@@ -12,14 +21,11 @@ module.exports = {
 		vendor: [
 			'moment',
 			'react',
-			'react-dom',
-			'prop-types',
-			'react-css-modules',
-			'react-router',
+			'react-dom'
 		],
 	},
 	output: {
-		filename: '[name].js', // For Development
+		filename: '[chunkhash].[name].js',  // For Production
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',   // indicate the path prefix used for script tag src or link tag href
 	},
@@ -47,23 +53,20 @@ module.exports = {
 					'css-loader',
 				],
 			},
-			// "postcss" loader applies plugins configured in postcss.config
-			// like autoprefixer and precss, for sass-like CSS, etc.
+			// "postcss" loader applies plugins configured in postcss.config like autoprefixer and precss, for sass-like CSS, etc.
 			// "css" loader resolves paths in CSS and adds assets as dependencies.
-			// importLoaders (int): That many loaders after the css-loader are used to import resources.
-			// If all you have is postcss, then 1 is fine.
-			// But if you had more loaders than that, you'd want to bump the number up.
 			// "style" loader turns CSS into JS modules that inject <style> tags.
 			// In production, we use a plugin to extract that CSS to a file, but
 			// in development "style" loader enables hot editing of CSS.
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
-				use: [
-					'style-loader?sourceMap',
-					'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-					'postcss-loader',
-				],
+				// use: ['style-loader?sourceMap'].concat(cssCommonLoaders),
+
+				use: ExtractTextPlugin.extract({
+					fallback: ['style-loader?sourceMap'].concat(cssCommonLoaders),
+					use: cssCommonLoaders,
+				})
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -80,25 +83,41 @@ module.exports = {
 			},
 		]
 	},
-	// fast generate source map for development
-	devtool: 'cheap-module-eval-source-map',
-	devServer: {
-		// Used to avoid the 404 error when refresh spa with history api client router
-		historyApiFallback: true,
-	},
+	// devtool: 'cheap-module-source-map',  // For Development
+	devtool: 'source-map',  // For Production
 	plugins: [
+		/* For Production */
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('production')
+			}
+		}),
 		new StyleLintPlugin({
 			files: '**/*.css',
+		}),
+		new ExtractTextPlugin({
+			filename: 'bundle.css',
+			allChunks: true,
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ['vendor', 'manifest'],
 		}),
+		new WebpackMd5Hash(),
+		new ManifestPlugin(),
 		// Generates an `index.html` file with the <script> injected.
 		new HtmlWebpackPlugin({
 			title: 'Webpack React Demo',
 			template: 'index.ejs',
 			inject: 'body',
 		}),
+		new InlineManifestWebpackPlugin({
+			name: 'webpackManifest',
+		}),
+
+		/* For Production */
+		new webpack.optimize.UglifyJsPlugin({
+			compress: { warnings: true }
+		})
 	],
 	// Turn off performance hints during development because we don't do any
 	// splitting or minification in interest of speed. These warnings become

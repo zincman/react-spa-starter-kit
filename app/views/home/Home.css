@@ -1,0 +1,12 @@
+:root {
+	--mainColor: pink;
+}
+
+.container {
+	padding: 20px;
+	color: var(--mainColor);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('./../../images/bg.png');
+	overflow: hidden;
+}

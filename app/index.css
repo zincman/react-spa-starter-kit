@@ -1,0 +1,12 @@
+:root {
+	--mainColor: darkgrey;
+}
+
+.container {
+	color: var(--mainColor);
+}
+
+.navigation {
+	background-color: #ddd;
+}
+

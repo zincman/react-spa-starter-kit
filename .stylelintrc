@@ -1,0 +1,23 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+  	"at-rule-empty-line-before": [
+		"always",
+		{
+			except: [
+				"blockless-after-same-name-blockless",
+				"inside-block",
+			],
+			ignore: ["after-comment"],
+		}
+	],
+  	"indentation": "tab",
+	"property-no-vendor-prefix": true,
+	"property-no-unknown": [true, {
+		ignoreProperties: ["composes"],
+	}],
+	"selector-pseudo-class-no-unknown": [true, {
+		ignorePseudoClasses: ["global"],
+	}],
+  }
+}
