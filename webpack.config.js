@@ -93,7 +93,7 @@ module.exports = {
 	plugins: [
 		// Enable HMR
 		// new webpack.HotModuleReplacementPlugin(),
-		// Show friendly module name instead of a number
+		// Show friendly module name instead of a number when using hmr
 		new webpack.NamedModulesPlugin(),
 		new StyleLintPlugin({
 			files: '**/*.css',
