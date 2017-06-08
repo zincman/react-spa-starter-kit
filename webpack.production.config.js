@@ -29,13 +29,13 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',   // indicate the path prefix used for script tag src or link tag href
 	},
-	context: path.resolve(__dirname, 'app'),
+	context: path.resolve(__dirname, 'src'),
 	module: {
 		rules: [
 			{
 				enforce: 'pre',
 				test: /\.(js|jsx)$/,
-				include: path.resolve(__dirname, 'app'),
+				include: path.resolve(__dirname, 'src'),
 				use: ['eslint-loader'],
 			},
 			// Process JS with Babel.

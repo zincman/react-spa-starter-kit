@@ -1,10 +1,11 @@
 {
-  "name": "webpack-demo",
+  "name": "react-spa-starter-kit",
   "version": "1.0.0",
   "description": "It is a demo for react spa start kit.n",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --progress",
+	  "hmr": "webpack-dev-server --open --progress --hot",
     "product": "npm run clean && webpack --progress --config webpack.production.config.js",
     "test": "jest",
     "lint": "eslint app && stylelint app/**/*.css",

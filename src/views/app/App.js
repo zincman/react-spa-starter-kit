@@ -1,12 +1,8 @@
-// @flow
-
-// $FlowFixMe
-import normalizeCSS from 'normalize.css/normalize.css'	// eslint-disable-line no-unused-vars
-// import 'typeface-roboto'
-import './reset.css'
-import { MuiThemeProvider } from 'material-ui/styles'
+/**
+ * Created by derek on 08/06/2017.
+ */
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { MuiThemeProvider } from 'material-ui/styles'
 import {
 	BrowserRouter as Router,
 	Route,
@@ -15,13 +11,13 @@ import {
 } from 'react-router-dom'
 import Button from 'material-ui/Button'
 import CSSModules from 'react-css-modules'
-import styles from './index.css'
-import Home from './views/home/Home'
-import Inbox from './views/inbox/Inbox'
-import About from './views/about/About'
-import immutable from './utilities/immutable'
+import styles from './app.css'
+import Home from '../home/Home'
+import Inbox from '../inbox/Inbox'
+import About from '../about/About'
+import immutable from '../../utilities/immutable'
 
-class ReactApp extends React.Component {
+class App extends React.Component {
 	componentDidMount(){
 		immutable()
 		// Test babel compile
@@ -61,7 +57,4 @@ class ReactApp extends React.Component {
 	}
 }
 
-const ReactAppWrap = CSSModules(ReactApp, styles)
-
-const mountNode = document.getElementById('root')
-ReactDOM.render(<ReactAppWrap />, mountNode)
+export default CSSModules(App, styles)

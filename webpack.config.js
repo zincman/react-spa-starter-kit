@@ -23,13 +23,13 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',   // indicate the path prefix used for script tag src or link tag href
 	},
-	context: path.resolve(__dirname, 'app'),
+	context: path.resolve(__dirname, 'src'),
 	module: {
 		rules: [
 			{
 				enforce: 'pre',
 				test: /\.(js|jsx)$/,
-				include: path.resolve(__dirname, 'app'),
+				include: path.resolve(__dirname, 'src'),
 				use: ['eslint-loader'],
 			},
 			// Process JS with Babel.
@@ -85,8 +85,16 @@ module.exports = {
 	devServer: {
 		// Used to avoid the 404 error when refresh spa with history api client router
 		historyApiFallback: true,
+		// Tell the dev-server we're using HMR
+		// hot: true,
+		contentBase: path.resolve(__dirname, 'dist'),
+		publicPath: '/',
 	},
 	plugins: [
+		// Enable HMR
+		// new webpack.HotModuleReplacementPlugin(),
+		// Show friendly module name instead of a number
+		new webpack.NamedModulesPlugin(),
 		new StyleLintPlugin({
 			files: '**/*.css',
 		}),
