@@ -4547,9 +4547,9 @@
       "dev": true
     },
     "material-ui": {
-      "version": "1.0.0-alpha.15",
+      "version": "1.0.0-alpha.16",
       "from": "material-ui@next",
-      "resolved": "https://registry.npmjs.org/material-ui/-/material-ui-1.0.0-alpha.15.tgz"
+      "resolved": "https://registry.npmjs.org/material-ui/-/material-ui-1.0.0-alpha.16.tgz"
     },
     "math-expression-evaluator": {
       "version": "1.2.17",
@@ -6780,9 +6780,9 @@
       "resolved": "https://registry.npmjs.org/react-router-dom/-/react-router-dom-4.1.1.tgz"
     },
     "react-scrollbar-size": {
-      "version": "1.0.2",
-      "from": "react-scrollbar-size@>=1.0.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/react-scrollbar-size/-/react-scrollbar-size-1.0.2.tgz"
+      "version": "2.0.0",
+      "from": "react-scrollbar-size@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/react-scrollbar-size/-/react-scrollbar-size-2.0.0.tgz"
     },
     "react-test-renderer": {
       "version": "15.5.4",
@@ -6838,9 +6838,9 @@
       "dev": true
     },
     "recompose": {
-      "version": "0.23.4",
+      "version": "0.23.5",
       "from": "recompose@>=0.23.4 <0.24.0",
-      "resolved": "https://registry.npmjs.org/recompose/-/recompose-0.23.4.tgz"
+      "resolved": "https://registry.npmjs.org/recompose/-/recompose-0.23.5.tgz"
     },
     "redent": {
       "version": "1.0.0",

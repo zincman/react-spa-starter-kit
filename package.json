@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --progress",
-	  "hmr": "webpack-dev-server --open --progress --hot",
+    "hmr": "webpack-dev-server --open --progress --hot",
     "product": "npm run clean && webpack --progress --config webpack.production.config.js",
     "test": "jest",
     "lint": "eslint app && stylelint app/**/*.css",
@@ -53,7 +53,7 @@
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
-    "material-ui": "^1.0.0-alpha.15",
+    "material-ui": "^1.0.0-alpha.16",
     "moment": "^2.18.1",
     "normalize.css": "^5.0.0",
     "postcss-js": "^1.0.0",
