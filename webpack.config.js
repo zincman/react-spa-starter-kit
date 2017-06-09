@@ -15,7 +15,9 @@ module.exports = {
 			'react-dom',
 			'prop-types',
 			'react-css-modules',
-			'react-router',
+			'react-router-dom',
+			'material-ui/styles',
+			'classnames/bind',
 		],
 	},
 	output: {

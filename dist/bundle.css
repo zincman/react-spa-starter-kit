@@ -1,11 +1,11 @@
 a {
 	text-decoration: none;
 }
-.___index__container___266la {
+.views-app-___app__container___34RSf {
 	color: darkgrey;
 }
 
-.___index__navigation___2qNSO {
+.views-app-___app__navigation___bnhS4 {
 	background-color: #ddd;
 }
 
@@ -30,6 +30,11 @@ button.views-inbox-___Message__normal___1dOEx {
 
 button.views-inbox-___Message__active___350yb {
 	background-color: red;
+}
+.views-about-___About__red-wrap___27AX- {
+}
+.views-about-___About__red-wrap___27AX- h1 {
+		color: #ff1393
 }
 
 /*# sourceMappingURL=bundle.css.map*/

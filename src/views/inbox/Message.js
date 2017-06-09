@@ -1,9 +1,9 @@
 // @flow
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import Chip from 'material-ui/Chip'
 import CSSModules from 'react-css-modules'
 import classNames from 'classnames/bind'
+import Chip from 'material-ui/Chip'
 
 import styles from './Message.css'
 

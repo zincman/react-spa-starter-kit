@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import styles from './About.css'
 import CSSModules from 'react-css-modules'
+import styles from './About.css'
 
 class About extends Component {
 	render(){
