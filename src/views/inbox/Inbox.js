@@ -26,7 +26,7 @@ class Inbox extends Component {
 		return(
 			<section styleName="container" className={classes.bouton}>
 				<Link to={`${match.url}/AABBCCDD`}>
-					<Button primary raised>Refresh</Button>
+					<Button color="primary" raised>Refresh</Button>
 				</Link>
 				<Route path={`${match.url}/:id`} component={Message} />
 			</section>
