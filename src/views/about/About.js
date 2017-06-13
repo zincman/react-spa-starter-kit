@@ -6,7 +6,7 @@ class About extends Component {
 	render(){
 		return(
 			<div>
-				<section styleName="red-wrap">
+				<section className="global-class" styleName="red-wrap">
 					<h1>{'It\'s a web starter kits by Derek Lu'}</h1>
 					<h3>The subtitle</h3>
 				</section>

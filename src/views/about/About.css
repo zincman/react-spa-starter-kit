@@ -3,3 +3,7 @@
 		color: #ff1393;
 	}
 }
+
+:global(.global-class) {
+	font-style: italic;
+}
