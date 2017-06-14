@@ -6,7 +6,7 @@ class About extends Component {
 	render(){
 		return(
 			<div>
-				<section className="global-class" styleName="red-wrap">
+				<section className="global-class" styleName="red-wrap bold">
 					<h1>{'It\'s a web starter kits by Derek Lu'}</h1>
 					<h3>The subtitle</h3>
 				</section>
@@ -18,4 +18,4 @@ class About extends Component {
 	}
 }
 
-export default CSSModules(About, styles)
+export default CSSModules(About, styles, {allowMultiple: true})

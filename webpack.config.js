@@ -43,10 +43,10 @@ module.exports = {
 			// This rule applies plugins to some third CSS, like normalizeCSS, from node_modules
 			{
 				test: /\.css$/,
-				include: /node_modules/,        // for normalize.css
+				include: /node_modules/,        // for normalize.css etc.
 				use: [
 					'style-loader?sourceMap',
-					'css-loader',
+					'css-loader',               // There is no modules
 				],
 			},
 			// "postcss" loader applies plugins configured in postcss.config

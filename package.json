@@ -15,7 +15,7 @@
   "author": "Zincman",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
@@ -55,7 +55,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^1.0.0-alpha.17",
     "moment": "^2.18.1",
-    "normalize.css": "^5.0.0",
+    "normalize.css": "^7.0.0",
     "postcss-js": "^1.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

@@ -13,6 +13,16 @@ const cssCommonLoaders = [
 	'postcss-loader',
 ]
 
+const extractBundleCSS = new ExtractTextPlugin({
+	filename: 'styles/[contenthash].bundle.css',
+	allChunks: true,
+})
+
+const extractVendorCSS = new ExtractTextPlugin({
+	filename: 'styles/[contenthash].vendor.css',
+	allChunks: true,
+})
+
 module.exports = {
 	entry: {
 		bundle: [
@@ -47,11 +57,11 @@ module.exports = {
 			// This rule applies plugins to some third CSS, like normalizeCSS, from node_modules
 			{
 				test: /\.css$/,
-				include: /node_modules/,        // for normalize.css
-				use: [
-					'style-loader?sourceMap',
-					'css-loader',
-				],
+				include: /node_modules/,        // for normalize.css etc.
+				use: extractVendorCSS.extract({
+					fallback: 'style-loader?sourceMap',
+					use: ['css-loader'],        // There is no modules
+				}),
 			},
 			// "postcss" loader applies plugins configured in postcss.config like autoprefixer and precss, for sass-like CSS, etc.
 			// "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -63,8 +73,8 @@ module.exports = {
 				exclude: /node_modules/,
 				// use: ['style-loader?sourceMap'].concat(cssCommonLoaders),
 
-				use: ExtractTextPlugin.extract({
-					fallback: ['style-loader?sourceMap'].concat(cssCommonLoaders),
+				use: extractBundleCSS.extract({
+					fallback: 'style-loader?sourceMap',
 					use: cssCommonLoaders,
 				})
 			},
@@ -95,10 +105,8 @@ module.exports = {
 		new StyleLintPlugin({
 			files: '**/*.css',
 		}),
-		new ExtractTextPlugin({
-			filename: 'bundle.css',
-			allChunks: true,
-		}),
+		extractBundleCSS,
+		extractVendorCSS,
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ['vendor', 'manifest'],
 		}),

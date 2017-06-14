@@ -4,6 +4,10 @@
 	}
 }
 
+.bold h3 {
+	font-weight: normal;
+}
+
 :global(.global-class) {
 	font-style: italic;
 }
