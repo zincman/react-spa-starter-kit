@@ -10,12 +10,14 @@ class About extends Component {
 					<h1>{'It\'s a web starter kits by Derek Lu'}</h1>
 					<h3>The subtitle</h3>
 				</section>
-				<section>
-					<h1>Get started from here!</h1>
+				<section styleName="main-body">
+					<h1>There is main body text</h1>
 				</section>
 			</div>
 		)
 	}
 }
 
+// Note: avoid using multiple CSS Modules to describe a single element.
+// Composition and Mixin are preferable
 export default CSSModules(About, styles, {allowMultiple: true})

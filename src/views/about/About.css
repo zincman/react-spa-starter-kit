@@ -1,3 +1,5 @@
+@import 'body.css';
+
 .red-wrap {
 	& h1 {
 		color: #ff1393;
