@@ -32,21 +32,33 @@ module.exports = {
 				enforce: 'pre',
 				test: /\.(js|jsx)$/,
 				include: path.resolve(__dirname, 'src'),
-				use: ['eslint-loader'],
+				use: [{ loader: 'eslint-loader' }],
 			},
 			// Process JS with Babel.
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: ['babel-loader'],
+				use: [{
+					loader: 'babel-loader',
+				}],
 			},
 			// This rule applies plugins to some third CSS, like normalizeCSS, from node_modules
 			{
 				test: /\.css$/,
 				include: /node_modules/,        // for normalize.css etc.
 				use: [
-					'style-loader?sourceMap',
-					'css-loader',               // There is no modules
+					{
+						loader: 'style-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
+					{
+						loader: 'css-loader',       // There is no modules
+						options: {
+							sourceMap: true,
+						},
+					},
 				],
 			},
 			// "postcss" loader applies plugins configured in postcss.config
@@ -62,14 +74,32 @@ module.exports = {
 				test: /\.css$/,
 				exclude: /node_modules/,
 				use: [
-					'style-loader?sourceMap',
-					'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-					'postcss-loader',
+					{
+						loader: 'style-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							importLoaders: 1,
+							localIdentName: '[path][name]__[local]__[hash:base64:5]',
+							sourceMap: true,
+						},
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
 				],
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
-				loader: 'file-loader',
+				use: [{ loader: 'file-loader' }],
 			},
 			// "url" loader works like "file" loader except that it embeds assets
 			// smaller than specified limit in bytes as data URLs to avoid requests.
@@ -77,18 +107,21 @@ module.exports = {
 				test: [/\.(png|bmp|gif)$/, /\.jpe?g$/],
 				exclude: /node_modules/,
 				use: [
-					'url-loader?limit=10000',
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 10240,   // Byte limit to inline files as Data URL
+						},
+					},
 				],
 			},
 		]
 	},
 	// fast generate source map for development
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'cheap-module-source-map',
 	devServer: {
 		// Used to avoid the 404 error when refresh spa with history api client router
 		historyApiFallback: true,
-		// Tell the dev-server we're using HMR
-		// hot: true,
 		contentBase: path.resolve(__dirname, 'dist'),
 		publicPath: '/',
 	},

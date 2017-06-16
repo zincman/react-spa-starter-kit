@@ -11,7 +11,7 @@ class About extends Component {
 					<h3>The subtitle</h3>
 				</section>
 				<section styleName="main-body">
-					<h1>There is main body text</h1>
+					<h1>There is main body text.</h1>
 				</section>
 			</div>
 		)

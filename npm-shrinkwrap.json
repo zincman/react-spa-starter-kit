@@ -1520,6 +1520,11 @@
       "resolved": "https://registry.npmjs.org/create-hmac/-/create-hmac-1.1.6.tgz",
       "dev": true
     },
+    "create-react-class": {
+      "version": "15.6.0",
+      "from": "create-react-class@>=15.5.2 <16.0.0",
+      "resolved": "https://registry.npmjs.org/create-react-class/-/create-react-class-15.6.0.tgz"
+    },
     "crypt": {
       "version": "0.0.2",
       "from": "crypt@>=0.0.1 <0.1.0",
@@ -6884,9 +6889,9 @@
       "dev": true
     },
     "react": {
-      "version": "15.5.4",
-      "from": "react@>=15.4.1 <16.0.0",
-      "resolved": "https://registry.npmjs.org/react/-/react-15.5.4.tgz"
+      "version": "15.6.1",
+      "from": "react@15.6.1",
+      "resolved": "https://registry.npmjs.org/react/-/react-15.6.1.tgz"
     },
     "react-css-modules": {
       "version": "4.3.0",
@@ -6894,9 +6899,9 @@
       "resolved": "https://registry.npmjs.org/react-css-modules/-/react-css-modules-4.3.0.tgz"
     },
     "react-dom": {
-      "version": "15.5.4",
-      "from": "react-dom@>=15.4.1 <16.0.0",
-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.5.4.tgz"
+      "version": "15.6.1",
+      "from": "react-dom@15.6.1",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.6.1.tgz"
     },
     "react-event-listener": {
       "version": "0.4.5",

@@ -10,6 +10,7 @@ import Welcome from './Welcome'
 type Props = {
 	token: string,
 }
+
 class Home extends Component {
 	props: Props
 	static propTypes = {

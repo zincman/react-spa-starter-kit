@@ -8,11 +8,6 @@ const WebpackMd5Hash = require('webpack-md5-hash')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
-const cssCommonLoaders = [
-	'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-	'postcss-loader',
-]
-
 const extractBundleCSS = new ExtractTextPlugin({
 	filename: 'styles/[contenthash].bundle.css',
 	allChunks: true,
@@ -46,21 +41,35 @@ module.exports = {
 				enforce: 'pre',
 				test: /\.(js|jsx)$/,
 				include: path.resolve(__dirname, 'src'),
-				use: ['eslint-loader'],
+				use: [{ loader: 'eslint-loader' }],
 			},
 			// Process JS with Babel.
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: ['babel-loader'],
+				use: [{ loader: 'babel-loader' }],
 			},
 			// This rule applies plugins to some third CSS, like normalizeCSS, from node_modules
 			{
 				test: /\.css$/,
 				include: /node_modules/,        // for normalize.css etc.
 				use: extractVendorCSS.extract({
-					fallback: 'style-loader?sourceMap',
-					use: ['css-loader'],        // There is no modules
+					fallback: [
+						{
+							loader: 'style-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+					],
+					use: [
+						{
+							loader: 'css-loader',   // There is no modules
+							options: {
+								sourceMap: true,
+							},
+						},
+					],
 				}),
 			},
 			// "postcss" loader applies plugins configured in postcss.config like autoprefixer and precss, for sass-like CSS, etc.
@@ -71,16 +80,37 @@ module.exports = {
 			{
 				test: /\.css$/,
 				exclude: /node_modules/,
-				// use: ['style-loader?sourceMap'].concat(cssCommonLoaders),
-
 				use: extractBundleCSS.extract({
-					fallback: 'style-loader?sourceMap',
-					use: cssCommonLoaders,
-				})
+					fallback: [
+						{
+							loader: 'style-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+					],
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								modules: true,
+								importLoaders: 1,
+								localIdentName: '[path]_[name]_[local]_[hash:base64:5]',
+								sourceMap: true,
+							},
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								sourceMap: true,
+							},
+						},
+					],
+				}),
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
-				loader: 'file-loader',
+				use: [{ loader: 'file-loader' }],
 			},
 			// "url" loader works like "file" loader except that it embeds assets
 			// smaller than specified limit in bytes as data URLs to avoid requests.
@@ -88,12 +118,16 @@ module.exports = {
 				test: [/\.(png|bmp|gif)$/, /\.jpe?g$/],
 				exclude: /node_modules/,
 				use: [
-					'url-loader?limit=10000',
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 10240,   // Byte limit to inline files as Data URL
+						},
+					},
 				],
 			},
 		]
 	},
-	// devtool: 'cheap-module-source-map',  // For Development
 	devtool: 'source-map',  // For Production
 	plugins: [
 		/* For Production */
@@ -124,7 +158,10 @@ module.exports = {
 
 		/* For Production */
 		new webpack.optimize.UglifyJsPlugin({
-			compress: { warnings: true }
+			compress: {
+				warnings: true,
+			},
+			sourceMap: true,
 		})
 	],
 	// Turn off performance hints during development because we don't do any

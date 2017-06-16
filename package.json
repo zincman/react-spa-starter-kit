@@ -58,9 +58,9 @@
     "normalize.css": "^7.0.0",
     "postcss-js": "^1.0.0",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
+    "react": "^15.6.1",
     "react-css-modules": "^4.3.0",
-    "react-dom": "^15.5.4",
+    "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1",
     "typeface-roboto": "0.0.22"
   }
