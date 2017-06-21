@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import CSSModules from 'react-css-modules'
+import { CSSTransitionGroup } from 'react-transition-group'
 import styles from './About.css'
 
 class About extends Component {
@@ -11,7 +12,15 @@ class About extends Component {
 					<h3>The subtitle</h3>
 				</section>
 				<section styleName="main-body">
-					<h1>There is main body text.</h1>
+					{/*TODO: Update to react-transition-group@2.0.0*/}
+					<CSSTransitionGroup
+						transitionName="example"
+						transitionAppear={true}
+						transitionAppearTimeout={500}
+						transitionEnter={false}
+						transitionLeave={false}>
+						<h1>There is main body text.</h1>
+					</CSSTransitionGroup>
 				</section>
 			</div>
 		)

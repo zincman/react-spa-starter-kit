@@ -13,3 +13,12 @@
 :global(.global-class) {
 	font-style: italic;
 }
+
+:global(.example-appear) {
+	opacity: 0.01;
+}
+
+:global(.example-appear.example-appear-active) {
+	opacity: 1;
+	transition: opacity 0.5s ease-in;
+}
