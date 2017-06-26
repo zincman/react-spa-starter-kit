@@ -4712,16 +4712,9 @@
       "dev": true
     },
     "material-ui": {
-      "version": "1.0.0-alpha.19",
-      "from": "material-ui@1.0.0-alpha.19",
-      "resolved": "https://registry.npmjs.org/material-ui/-/material-ui-1.0.0-alpha.19.tgz",
-      "dependencies": {
-        "react-transition-group": {
-          "version": "1.2.0",
-          "from": "react-transition-group@>=1.2.0 <2.0.0",
-          "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-1.2.0.tgz"
-        }
-      }
+      "version": "1.0.0-alpha.20",
+      "from": "material-ui@1.0.0-alpha.20",
+      "resolved": "https://registry.npmjs.org/material-ui/-/material-ui-1.0.0-alpha.20.tgz"
     },
     "math-expression-evaluator": {
       "version": "1.2.17",
