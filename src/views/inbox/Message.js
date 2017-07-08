@@ -62,9 +62,9 @@ class Message extends Component {
 		/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
 		console.warn(chipClass)
 		return(
-			<section styleName="container">
+			<section id="message" styleName="container">
 				<Chip
-					className={chipClass}
+					classes={{root: chipClass}}
 					label={`Message:${match.params.id}`}
 					onMouseEnter={this._onMouseEnter}
 					onMouseLeave={this._onMouseLeave}

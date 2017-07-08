@@ -2,10 +2,10 @@
 	padding-top: 10px;
 }
 
-button.normal {
+div.normal {
 	background-color: #ccc;
 }
 
-button.active {
+div.active {
 	background-color: red;
 }

@@ -18,6 +18,7 @@ module.exports = {
 			'react-router-dom',
 			'material-ui/styles',
 			'classnames/bind',
+			'material-ui/Chip',
 		],
 	},
 	output: {

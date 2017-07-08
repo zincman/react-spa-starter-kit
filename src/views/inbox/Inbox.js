@@ -24,7 +24,7 @@ class Inbox extends Component {
 		const {match, classes} = this.props
 
 		return(
-			<section styleName="container" className={classes.bouton}>
+			<section className={classes.bouton} styleName="container">
 				<Link to={`${match.url}/AABBCCDD`}>
 					<Button color="primary" raised>Refresh</Button>
 				</Link>
