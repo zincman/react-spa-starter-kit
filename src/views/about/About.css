@@ -14,11 +14,30 @@
 	font-style: italic;
 }
 
-:global(.example-appear) {
+:global(.fade-appear) {
 	opacity: 0.01;
 }
 
-:global(.example-appear.example-appear-active) {
+:global(.fade-appear.fade-appear-active) {
 	opacity: 1;
-	transition: opacity 0.5s ease-in;
+	transition: opacity 500ms ease-in;
 }
+
+:global .fade-enter {
+	opacity: 0.1;
+}
+
+:global .fade-enter.fade-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+}
+
+:global .fade-exit {
+	opacity: 1;
+}
+
+:global .fade-exit.fade-exit-active {
+	opacity: 0.01;
+	transition: opacity 500ms ease-in;
+}
+

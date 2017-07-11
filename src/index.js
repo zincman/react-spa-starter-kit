@@ -4,7 +4,7 @@
 /*global module*/
 
 import normalizeCSS from 'normalize.css/normalize.css'	// eslint-disable-line no-unused-vars
-// import 'typeface-roboto'
+import 'typeface-roboto'
 import './reset.css'
 import React from 'react'
 import ReactDOM from 'react-dom'

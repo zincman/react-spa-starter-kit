@@ -26,7 +26,13 @@ module.exports = {
 		vendor: [
 			'moment',
 			'react',
-			'react-dom'
+			'react-dom',
+			'prop-types',
+			'react-css-modules',
+			'react-router-dom',
+			'material-ui/styles',
+			'typeface-roboto',
+			'classnames/bind',
 		],
 	},
 	output: {
@@ -164,10 +170,4 @@ module.exports = {
 			sourceMap: true,
 		})
 	],
-	// Turn off performance hints during development because we don't do any
-	// splitting or minification in interest of speed. These warnings become
-	// cumbersome.
-	// performance: {
-	// 	hints: false,
-	// },
 }

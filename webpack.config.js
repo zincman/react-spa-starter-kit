@@ -17,8 +17,8 @@ module.exports = {
 			'react-css-modules',
 			'react-router-dom',
 			'material-ui/styles',
+			'typeface-roboto',
 			'classnames/bind',
-			'material-ui/Chip',
 		],
 	},
 	output: {

@@ -10,7 +10,7 @@ type Props = {
 class Welcome extends Component {
 	props: Props
 	static defaultProps = {
-		speech: 'I\'m a react spa start kit',
+		speech: 'I\'m a react spa start kit 2017-07-11T',
 	}
 	constructor(props: Props){
 		super(props)

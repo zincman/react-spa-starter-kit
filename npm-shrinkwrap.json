@@ -4714,7 +4714,14 @@
     "material-ui": {
       "version": "1.0.0-alpha.21",
       "from": "material-ui@1.0.0-alpha.21",
-      "resolved": "https://registry.npmjs.org/material-ui/-/material-ui-1.0.0-alpha.21.tgz"
+      "resolved": "https://registry.npmjs.org/material-ui/-/material-ui-1.0.0-alpha.21.tgz",
+      "dependencies": {
+        "react-transition-group": {
+          "version": "1.2.0",
+          "from": "react-transition-group@>=1.2.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-1.2.0.tgz"
+        }
+      }
     },
     "math-expression-evaluator": {
       "version": "1.2.17",
@@ -6942,9 +6949,9 @@
       "dev": true
     },
     "react-transition-group": {
-      "version": "1.2.0",
-      "from": "react-transition-group@1.2.0",
-      "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-1.2.0.tgz"
+      "version": "2.0.2",
+      "from": "react-transition-group@latest",
+      "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.0.2.tgz"
     },
     "read-cache": {
       "version": "1.0.0",
